@@ -1,0 +1,15 @@
+name="create user flow"
+env=["id", "new_guid()", "api_key", "123456789"]
+
+[steps]
+    [posting_data]
+    request="post_data"
+    [wait]
+    duration="150ms"
+    [check_data]
+    request="check_created_data"
+    [assert]
+    created_id="@id"
+
+
+

@@ -5,7 +5,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/PMoneda/pigeon/app"
+	"github.com/PMoneda/pruu/app"
 	"github.com/gin-gonic/gin"
 )
 

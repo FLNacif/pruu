@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pruu a HTTP dump tool and request simulator">
+    <title>Pruu</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    
+    
+    
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/email-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="/assets/css/layouts/email.css">
+        <!--<![endif]-->
+        <style>
+        .email-item:hover{
+            background-color: #eaeaea;
+        }
+        </style>
+</head>
+<body>
+<div id="layout" class="content pure-g">
+    <div id="nav" class="pure-u">           
+        <div class="nav-inner">
+            <img src="/assets/img/common/4866-200.png" width="100px"/>
+            <h3 style="color:white;">Pruu</h3>
+<!--
+            <div class="pure-menu">
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Inbox <span class="email-count">(2)</span></a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Important</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sent</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Drafts</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Trash</a></li>
+                    <li class="pure-menu-heading">Labels</li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-personal"></span>Personal</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-work"></span>Work</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-travel"></span>Travel</a></li>
+                </ul>
+            </div>
+        -->
+        </div>
+        
+    </div>
+
+    <div id="list" class="pure-u-1">
+         {{range .dumps}}    
+            <div class="email-item email-item-unread1 pure-g" style="cursor:pointer;" data-dump="{{.Value}}" onclick="document.getElementById('dumpArea').value = this.getAttribute('data-dump')">            
+                <div class="pure-u-3-4">
+                    <h5 class="email-name">{{.Method}} {{.URI}}</h5>
+                    <h4 class="email-subject">Content-Length: {{.BodySize}}</h4>
+                    <p class="email-desc" style="word-break: break-word;">
+                        Body checksum sha256: {{.Checksum}}
+                    </p>
+                    <h6 class="email-subject">{{.CreatedAt}}</h6>
+                </div>
+            </div>    
+        {{end}}
+       
+    </div>
+
+    <div id="main" class="pure-u-1" style="width:100%">
+        <div id="e-content" class="email-content" >            
+            <div id="email-content-body" class="email-content-body" style="padding:0px;">
+                <textarea id="dumpArea" style="width:100%; border:none; height:100%;"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<script src="https://yui-s.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+<script>
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
+
+        var menuButton = Y.one('.nav-menu-button'),
+            nav        = Y.one('#nav');
+
+        // Setting the active class name expands the menu vertically on small screens.
+        menuButton.on('click', function (e) {
+            nav.toggleClass('active');
+        });
+
+        // Your application code goes here...
+
+    });
+</script>
+-->
+<script>
+    
+    function setHeight(id){
+        document.getElementById(id).style.height = window.innerHeight+'px';
+    }
+    setHeight("main")
+    setHeight("e-content")
+    setHeight("email-content-body")
+    setHeight("dumpArea")
+    
+</script>
+
+
+
+</body>
+</html>

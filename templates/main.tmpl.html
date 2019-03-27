@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pruu a HTTP dump tool and request simulator">
+    <title>Pruu</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    
+    
+    
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/email-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="/assets/css/layouts/email.css">
+        <!--<![endif]-->
+        <style>
+            body{
+                background: rgb(51, 87, 146);
+                margin:0px;
+            }
+            #logo{
+                position:relative;
+                width:98%;
+                height:300px;
+                margin:auto;
+                margin-top:70px;
+                box-sizing: border-box;
+                max-width: 700px;
+            }
+            p {
+                text-align: center;
+                color:white;
+                margin:0px;
+            }
+            #doc{
+                color:rgb(51, 87, 146);
+                background-color:white;
+                border-radius: 10px;
+                padding: 10px;
+            }
+        </style>
+</head>
+<body>
+<div id="logo">    
+    <p>
+        <img src="/assets/img/common/4866-200.png"/>
+    </p>
+    <p style="font-size: 82px;font-family: 'Dosis', sans-serif;">
+        pruu
+    </p>
+    <br/>
+    <p>
+        Post to Pruu and collect full requests in raw http protocol, see detailed posted request inspect it.        
+    </p>
+    <p>
+        Use Pruu to see what your HTTP client is sending or to inspect and test webhook requests.
+    </p>
+    <br/>
+    <p id="doc" style="text-align:left;">
+        <b>POST</b> https://pruu.herokuapp.com/dump/<b>:id</b> to sending request
+    </p>
+    <br/>
+    <p id="doc" style="text-align:left;">
+        <b>GET</b>  https://pruu.herokuapp.com/dump/<b>:id</b> to view your requests
+    </p>
+    <br/>
+    <p id="doc" style="text-align:left;">
+        <b>CURL</b>  curl -X POST https://pruu.herokuapp.com/dump/<b>:id</b> -d <i>'{...}'</i>
+    </p>
+    <br/>    
+</div>
+
+</body>
+</html>
